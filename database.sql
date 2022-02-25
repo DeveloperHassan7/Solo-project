@@ -22,7 +22,7 @@ VALUES ('DeveloperHassan', 'theworld', 'Hassan Nur', 'Hey Im Hassan', '701-780-2
 
 CREATE TABLE "building" (
 	"id" SERIAL PRIMARY KEY NOT NULL,
-	"name" varchar (80) NOT NULL,
+	"name" varchar (80),
 	"zip_code" varchar(10) NOT NULL,
 	"state" varchar(80) NOT NULL,
 	"city" varchar(80) NOT NULL,
@@ -30,9 +30,9 @@ CREATE TABLE "building" (
 	"address" varchar(255) NOT NULL,
 	"website" varchar(255) NOT NULL,
 	"property_management_id" integer references "property_management",
-	"1bed_1bathroom" BOOLEAN NOT NULL DEFAULT false ,
-	"2bed_1bathroom" BOOLEAN NOT NULL DEFAULT false,
-	"3bed_2bathroom" BOOLEAN NOT NULL DEFAULT false,
+	"bed1_1bathroom" BOOLEAN NOT NULL DEFAULT false ,
+	"bed2_1bathroom" BOOLEAN NOT NULL DEFAULT false,
+	"bed3_2bathroom" BOOLEAN NOT NULL DEFAULT false,
 	"studio" BOOLEAN NOT NULL DEFAULT false,
 	"price_range" DECIMAL NOT NULL,
 	"balcony" BOOLEAN NOT NULL DEFAULT false,
@@ -55,10 +55,12 @@ CREATE TABLE "building" (
 );
 
 select * from "building";
+
  
 
 INSERT INTO "building" ("name", "zip_code", "state", "city", "apartment_image_url", "address", "website", "property_management_id", "1bed_1bathroom", "2bed_1bathroom", "3bed_2bathroom", "studio", "price_range", "balcony", "cable_ready", "dishwasher", "controlled_access", "internet", "some_utilities_covered", "storage_place", "fireplace", "pet_friendly", "in_unit_laundry", "secured_garage", "fitness_center", "drug_distribution", "tax_evasion", "felony_assult", "grand_theft", "manslaughter" )
-VALUES ( 'Urban View Apartments','58104', 'North Dakota', 'Fargo', 'https://tinyurl.com/57atsnhk', '4955 28th Ave SW', 'https://www.rent.com/north-dakota/fargo-apartments', '1', 't', 'f', 't', 'f', '675', 'f', 't', 't', 't', 'f', 'f', 'f', 'f', 'f', 't', 'f', 'f', 'f', 't', 'f', 't', 'f');
+VALUES ( 'Urban View Apartments','58104', 'North Dakota', 'Fargo', 'https://tinyurl.com/57atsnhk', '4955 28th Ave SW', 'https://www.rent.com/north-dakota/fargo-apartments', '1', 't', 'f', 't', 'f', '675', 'f', 't', 't', 't', 'f', 'f', 'f', 'f', 'f', 't', 'f', 'f', 'f', 't', 'f', 't', 'f'); 
+
 
 DROP TABLE "building";
 
