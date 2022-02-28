@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">SecondConnect</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -23,22 +23,28 @@ function Nav() {
 
         {/* If a user is logged in, show these links */}
         {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
+           <>
+           <Link className="navLink" to="/user">
+             Home
+           </Link>
 
-            <Link className="navLink" to="/search">
-              Search
-            </Link>
+           <Link className="navLink" to="/profile">
+            Profile
+           </Link>
 
-            <LogOutButton className="navLink" />
-          </>
-        )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+           <Link className="navLink" to="/search">
+             View Apartments
+           </Link>
+
+          
+           <LogOutButton className="navLink" />
+         </>
+       )}
+
+       <Link className="navLink" to="/about">
+         About
+       </Link>
       </div>
     </div>
   );

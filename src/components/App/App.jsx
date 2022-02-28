@@ -14,11 +14,12 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';;
+import HomePage from '../HomePage/HomePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 import './App.css';
 
@@ -37,7 +38,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/user" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -57,15 +58,23 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <HomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows SearchPage else shows LoginPage
             exact
             path="/search"
           >
             <SearchPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows ProfilePage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <ProfilePage />
           </ProtectedRoute>
 
           <Route
@@ -122,3 +131,4 @@ function App() {
 }
 
 export default App;
+

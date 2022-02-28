@@ -29,6 +29,7 @@ app.use('/api/user', userRouter);
 app.use('/api/building', buildingRouter)
 app.use('/api/favorites', favoriteRouter)
 
+
 // Serve static files
 app.use(express.static('build'));
 
