@@ -28,8 +28,8 @@ function Nav() {
              Home
            </Link>
 
-           <Link className="navLink" to="/profile">
-            Profile
+           <Link className="navLink" to="/favorite">
+           Your Favorites
            </Link>
 
 

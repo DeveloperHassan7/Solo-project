@@ -19,7 +19,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
-import ProfilePage from '../ProfilePage/ProfilePage';
+import FavoritePage from '../FavoritePage/FavoritePage';
 import ContactPage from '../ContactPage/ContanctPage';
 
 import './App.css';
@@ -31,7 +31,14 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+    dispatch({
+      type: 'FETCH_BUILDING'
+    });
+    dispatch({
+      type: 'FETCH_FAVORITES'
+    });
   }, [dispatch]);
+
 
   return (
     <Router>
@@ -81,9 +88,9 @@ function App() {
           <ProtectedRoute
             // logged in shows ProfilePage else shows LoginPage
             exact
-            path="/profile"
+            path="/favorite"
           >
-            <ProfilePage />
+            <FavoritePage />
           </ProtectedRoute>
 
           <Route

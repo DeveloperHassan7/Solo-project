@@ -13,21 +13,14 @@ function SearchPage() {
 
   console.log('This is my favorites', favorites);
 
-  useEffect(() => {
-    dispatch({
-      type: 'FETCH_BUILDING'
-    });
-  }, [dispatch])
-
-
-
   function handleFavorite(id) {
     dispatch({
       type: 'ADD_FAVORITE',
-      payload: id
+      payload: {building_id: id}
     })
   }
 
+  
 
 
 
@@ -49,7 +42,15 @@ function SearchPage() {
         </thead>
         <tbody>
           {buildingList.map(building => {
-            return (
+           const found = favorites.find(eachFavorite => {
+            
+            if(eachFavorite.building.id === building.id){
+               return true;
+             }
+             
+           })
+           console.log(`this is:`, found);
+           return (
               <tr key={building.id}>
                 <td><img src={building.apartment_image_url} /></td>
                 <td>{building.description}</td>
@@ -58,8 +59,11 @@ function SearchPage() {
                 <td>{building.zip_code}</td>
                 <td>{building.city}</td>
                 <td>{building.state}</td>
-                <td><button onClick={(event) => handleFavorite()} className="addFavorite">❤️</button></td>
-                <td><button onClick={(event) => handleDelete()} className="deleteFavorite">Delete</button></td>
+                <td>{!found 
+                ?  <button onClick={(event) => handleFavorite(building.id)} className="addFavorite">❤️</button> 
+                : <span>Already favorited</span>
+                }</td>
+                
               </tr>
 
             );

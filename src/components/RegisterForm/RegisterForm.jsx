@@ -5,7 +5,6 @@ function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [full_name, setfull_name] = useState('');
-  const [profile_image_url, setProfile_image_url] = useState('')
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 

@@ -6,11 +6,12 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 // Get all the data in the favorite table
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log(req.user);
-    let queryText = `SELECT * from "favorites" 
+    let userId = req.user.id
+    let queryText = `SELECT "favorites"."id", to_json("building") as "building", "private_note", "public_note", "recommend" from "favorites" 
     join "building" on "building"."id" = "favorites"."building_id"
-    join "user" on "user"."id" = "favorites"."user_id";
+    where "favorites"."user_id" = $1
     `;
-    pool.query(queryText).then((result) => {
+    pool.query(queryText, [userId]).then((result) => {
         res.send(result.rows)
     }).catch((error) => {
         console.log(error);
@@ -19,12 +20,14 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 });
 
+
 //Add new favorites 
 router.post('/', rejectUnauthenticated, (req, res) => {
     let newFavorites = req.body;
+    console.log(req.body);
     const queryText = `INSERT INTO "favorites" ("user_id", "building_id", "private_note", "public_note", "recommend")
-    VALUES ($1, $2, $3, $4, $5)`
-    pool.query(queryText, [newFavorites.user_id, newFavorites.building_id, newFavorites.private_note, newFavorites.public_note, newFavorites.recommend]).then(() => {
+    VALUES ($1, $2, '', '', null)`
+    pool.query(queryText, [req.user.id, newFavorites.building_id]).then(() => {
         res.sendStatus(201);
     }).catch(error => {
         console.log(error);
