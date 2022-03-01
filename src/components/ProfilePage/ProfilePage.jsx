@@ -16,12 +16,7 @@ function ProfilePage() {
     
     return (
        <div>
-        <u>
-         {user.full_name} <br />
-         {user.profile_image_url}
-        
-         
-        </u>
+           <h2>..</h2>
        </div>
     )
 }

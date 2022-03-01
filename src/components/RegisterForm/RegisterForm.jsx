@@ -18,7 +18,6 @@ function RegisterForm() {
         username: username,
         password: password,
         full_name: full_name,
-        profile_image_url: profile_image_url
       },
     });
   }; // end registerUser
@@ -64,18 +63,6 @@ function RegisterForm() {
             value={full_name}
             required
             onChange={(event) => setfull_name(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="Profile Picture">
-          Profile Picture:
-          <input
-            type="text"
-            name="url"
-            value={profile_image_url}
-            required
-            onChange={(event) => setProfile_image_url(event.target.value)}
           />
         </label>
       </div>
