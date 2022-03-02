@@ -31,13 +31,11 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    dispatch({
-      type: 'FETCH_BUILDING'
-    });
-    dispatch({
-      type: 'FETCH_FAVORITES'
-    });
+     dispatch({ type: 'FETCH_BUILDING' });
+     dispatch({ type: 'FETCH_FAVORITES' });
   }, [dispatch]);
+
+
 
 
   return (

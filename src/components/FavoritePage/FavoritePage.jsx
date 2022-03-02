@@ -1,30 +1,29 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react';
-
+import { useSelector } from "react-redux";
+import FavoriteItem from "./FavoriteItem";
 
 function FavoritePage() {
-    const dispatch = useDispatch();
     const favorites = useSelector(store => store.favoriteReducer)
-    const user = useSelector(store => store.user)
-    
-function handleDelete(id) {
-    dispatch({
-        type: 'DELETE_FAVORITE',
-        payload: id
-    })
-}
-    
 
     return (
-       <div>
-           <ul>
-               {favorites.map(favorite => <li key={favorite.id}> {favorite.private_note}
-               {favorite.public_note}
-               <button onClick={(event) => handleDelete(favorite.id)} className="deleteFavorite">Delete</button>
-               {favorite.recommend}</li>)}
-               
-           </ul>
-       </div>
+        <div className="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Private Note</th>
+                        <th>Public Note</th>
+                        <th>Recommend</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {favorites.map(favorite => {
+                        return <FavoriteItem favorite={favorite} /> 
+                    })}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

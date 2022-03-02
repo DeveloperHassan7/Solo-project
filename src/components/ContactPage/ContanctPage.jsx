@@ -1,7 +1,5 @@
 import './ContactPage.css'
-import { Form } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
+
 
 function ContactPage() {
     return (

@@ -40,9 +40,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 router.put('/recommend/:favorites_id', rejectUnauthenticated, (req, res) => {
     console.log(req.params);
     let favoritesId = req.params.favorites_id;
-    const recommend = req.body.recommend;
     const queryText = `UPDATE "favorites" SET "recommend"= 'true' where id=$1;`;
-    pool.query(queryText, [recommend, favoritesId]).then(() => {
+    pool.query(queryText, [favoritesId]).then(() => {
         res.sendStatus(204);
     }).catch((error) => {
         console.log(error);

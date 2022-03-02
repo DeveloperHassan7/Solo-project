@@ -24,8 +24,19 @@ function* fetchUser() {
   }
 }
 
+// function* addUser(action) {
+//   console.log(action.payload);
+//   try{
+//       const response = yield axios.post('/api/user', action.payload);
+//       yield put({type:'FETCH_USER'})
+//   } catch (error) {
+//       console.log('Error in adding user', error);
+//   }
+// }
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  // yield takeLatest('ADD_USER', addUser);
 }
 
 export default userSaga;

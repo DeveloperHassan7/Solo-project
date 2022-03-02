@@ -14,7 +14,7 @@ function HomePage() {
   console.log('The users are', user);
 
 function handleSubmit() {
-  history.push('/profile')
+  history.push('/search')
 }
 
   return (

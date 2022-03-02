@@ -9,24 +9,24 @@ function SearchPage() {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user)
   const favorites = useSelector(store => store.favoriteReducer)
-  const history = useHistory();
+
 
   console.log('This is my favorites', favorites);
 
   function handleFavorite(id) {
     dispatch({
       type: 'ADD_FAVORITE',
-      payload: {building_id: id}
+      payload: { building_id: id }
     })
   }
 
-  
+
 
 
 
   return (
     <div className="container">
-   
+
       <table>
         <thead>
           <tr>
@@ -42,15 +42,14 @@ function SearchPage() {
         </thead>
         <tbody>
           {buildingList.map(building => {
-           const found = favorites.find(eachFavorite => {
-            
-            if(eachFavorite.building.id === building.id){
-               return true;
-             }
-             
-           })
-           console.log(`this is:`, found);
-           return (
+            const found = favorites.find(eachFavorite => {
+              if (eachFavorite.building.id === building.id) {
+                return true;
+              }
+
+            })
+            console.log(`this is:`, found);
+            return (
               <tr key={building.id}>
                 <td><img src={building.apartment_image_url} /></td>
                 <td>{building.description}</td>
@@ -59,11 +58,11 @@ function SearchPage() {
                 <td>{building.zip_code}</td>
                 <td>{building.city}</td>
                 <td>{building.state}</td>
-                <td>{!found 
-                ?  <button onClick={(event) => handleFavorite(building.id)} className="addFavorite">❤️</button> 
-                : <span>Already favorited</span>
+                <td>{!found
+                  ? <button onClick={(event) => handleFavorite(building.id)} className="addFavorite"> ⭐ </button>
+                  : <span>Already favorited</span>
                 }</td>
-                
+
               </tr>
 
             );

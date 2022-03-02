@@ -33,8 +33,8 @@ function* deleteFavorite(action) {
 function* updatePrivateNote(action) {
     // action is: { type: 'UPDATE_PRIVATE_NOTE', payload: {id: 1, private_note: 'note'}}
     try{
-        const response = yield axios.put(`/api/favorites/${action.payload.id}`, action.payload);
-        yield put({type:'FETCH_FAVORITES'})
+        const response = yield axios.put(`/api/favorites/private_note/${action.payload.id}`, action.payload);
+        yield put({ type:'FETCH_FAVORITES' })
     } catch (error) {
         console.log('Error in updating private notes', error);
     }
@@ -44,20 +44,21 @@ function* updatePublicNote(action) {
     // action is: { type: 'UPDATE_PUBLIC_NOTE', payload: {id: 1, public_note: 'note'}}
     //My action which is an object will have a type and a payload. Since were passing in the id and the public the payload 
     //will be an object that will contain 2 keys. the id and the public note(which is a string)
-
+    console.log(`The public saga run:`);
     try{
-        const response = yield axios.put(`/api/favorites/${action.payload.id}`, action.payload);
-        yield put({type:'FETCH_FAVORITES'})
+        const response = yield axios.put(`/api/favorites/public_notes/${action.payload.id}`, action.payload);
+        yield put({ type:'FETCH_FAVORITES' })
     } catch (error) {
         console.log('Error in updating public notes', error);
     }
+    
 }
 
 function* updateRecommend (action) {
     // action is {type: 'UPDATE_RECOMMEND', payload: {id: 1, recommend: boolean}}
     try{
-        const response = yield axios.put(`/api/favorites/${action.payload.id}`, action.payload);
-        yield put({type:'FETCH_FAVORITES'})
+        const response = yield axios.put(`/api/favorites/recommend/${action.payload.id}`, action.payload);
+        yield put({ type:'FETCH_FAVORITES' })
     } catch (error) {
         console.log('Error in updating the recommend', error);
     }

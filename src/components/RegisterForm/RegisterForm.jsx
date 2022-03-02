@@ -16,7 +16,6 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
-        full_name: full_name,
       },
     });
   }; // end registerUser
@@ -50,18 +49,6 @@ function RegisterForm() {
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="Full Name">
-          Full name:
-          <input
-            type="text"
-            name="fullname"
-            value={full_name}
-            required
-            onChange={(event) => setfull_name(event.target.value)}
           />
         </label>
       </div>
