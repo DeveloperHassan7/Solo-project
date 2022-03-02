@@ -2,18 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from 'react';
 
 function FavoriteItem({ favorite }) {
-    const dispatch = useDispatch(); 
-    const [privateNote, setPrivateNote] = useState(''); 
-    const [publicNote, setPublicNote] = useState(''); 
+    const dispatch = useDispatch();
 
-    function handleDelete(id) { 
+    const [privateNote, setPrivateNote] = useState('');
+    const [publicNote, setPublicNote] = useState('');
+
+    function handleDelete(id) {
         dispatch({
             type: 'DELETE_FAVORITE',
             payload: id
         })
     }
 
-    function handlePrivateNote(id) { 
+    function handlePrivateNote(id) {
         dispatch({
             type: 'UPDATE_PRIVATE_NOTE',
             payload: { id: id, private_note: privateNote }
@@ -21,7 +22,7 @@ function FavoriteItem({ favorite }) {
         setPrivateNote('');
     }
 
-    function handlePublicNote(id) { 
+    function handlePublicNote(id) {
         dispatch({
             type: 'UPDATE_PUBLIC_NOTE',
             payload: { id: id, public_note: publicNote }
@@ -29,7 +30,7 @@ function FavoriteItem({ favorite }) {
         setPublicNote('')
     }
 
-    function handleRecommend(id) { // move
+    function handleRecommend(id) {
         dispatch({
             type: 'UPDATE_RECOMMEND',
             payload: { id: id }

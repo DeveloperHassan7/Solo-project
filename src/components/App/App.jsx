@@ -21,6 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import FavoritePage from '../FavoritePage/FavoritePage';
 import ContactPage from '../ContactPage/ContanctPage';
+import BuildingDetailPage from '../buildingDetailPage/BuildingDetailPage';
 
 import './App.css';
 
@@ -31,8 +32,8 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-     dispatch({ type: 'FETCH_BUILDING' });
-     dispatch({ type: 'FETCH_FAVORITES' });
+    dispatch({ type: 'FETCH_BUILDING' });
+    dispatch({ type: 'FETCH_FAVORITES' });
   }, [dispatch]);
 
 
@@ -106,7 +107,7 @@ function App() {
           </Route>
 
           <Route
-            exact
+            exacts
             path="/registration"
           >
             {user.id ?
@@ -117,6 +118,10 @@ function App() {
               // Otherwise, show the registration page
               <RegisterPage />
             }
+          </Route>
+
+          <Route path="/details/:id">
+            <BuildingDetailPage />
           </Route>
 
           <Route

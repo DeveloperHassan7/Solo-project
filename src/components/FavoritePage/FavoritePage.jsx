@@ -3,6 +3,7 @@ import FavoriteItem from "./FavoriteItem";
 
 function FavoritePage() {
     const favorites = useSelector(store => store.favoriteReducer)
+    
 
     return (
         <div className="container">

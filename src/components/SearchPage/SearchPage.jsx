@@ -1,28 +1,22 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from 'react';
 import './SearchPage.css';
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+
 
 
 function SearchPage() {
   const buildingList = useSelector(store => store.buildingReducer)
-  const dispatch = useDispatch();
-  const user = useSelector(store => store.user)
   const favorites = useSelector(store => store.favoriteReducer)
-
-
-  console.log('This is my favorites', favorites);
-
+  const dispatch = useDispatch();
+  const history = useHistory();
+ 
   function handleFavorite(id) {
+    console.log(`What is the id`, id);
     dispatch({
       type: 'ADD_FAVORITE',
       payload: { building_id: id }
-    })
+    });
   }
-
-
-
-
 
   return (
     <div className="container">
@@ -31,12 +25,10 @@ function SearchPage() {
         <thead>
           <tr>
             <th>Image</th>
-            <th>Description</th>
             <th>Name</th>
-            <th>Address</th>
-            <th>Zip Code</th>
-            <th>City</th>
-            <th>State</th>
+            <th></th>
+            <th></th>
+
 
           </tr>
         </thead>
@@ -48,20 +40,17 @@ function SearchPage() {
               }
 
             })
-            console.log(`this is:`, found);
             return (
               <tr key={building.id}>
                 <td><img src={building.apartment_image_url} /></td>
-                <td>{building.description}</td>
-                <td className="name">{building.name}</td>
-                <td>{building.address}</td>
-                <td>{building.zip_code}</td>
-                <td>{building.city}</td>
-                <td>{building.state}</td>
+                <td>{building.name}</td>
                 <td>{!found
                   ? <button onClick={(event) => handleFavorite(building.id)} className="addFavorite"> ⭐ </button>
                   : <span>Already favorited</span>
                 }</td>
+               <td>{building.recommend_count}</td>
+                <td> <button onClick={() => history.push(`/details/${building.id}`)}>View</button></td>
+            
 
               </tr>
 
