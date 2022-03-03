@@ -23,9 +23,9 @@ function BuildingDetailPage() {
                 </tr>
                 <tr>
                     <td> Address:</td>
-                    <td>{building.address}</td> <br />
-                    <td>{building.state}</td> <br />
-                    <td>{building.city}</td> <br />
+                    <td>{building.address}</td> 
+                    <td>{building.state}</td> 
+                    <td>{building.city}</td> 
                      <td>{building.zip_code}</td>    
                 </tr>
                     <tr>

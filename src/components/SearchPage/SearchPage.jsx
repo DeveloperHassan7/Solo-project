@@ -10,8 +10,9 @@ function SearchPage() {
   const dispatch = useDispatch();
   const history = useHistory();
  
+  console.log(`What is inside of the favorites:`, favorites);
   function handleFavorite(id) {
-    console.log(`What is the id`, id);
+    console.log(`What is the id`, id)
     dispatch({
       type: 'ADD_FAVORITE',
       payload: { building_id: id }

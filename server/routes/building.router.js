@@ -31,9 +31,9 @@ from "building";
 //This route will add data to the bulding table
 router.post('/', rejectUnauthenticated, (req, res) => {
   let newBuilding = req.body;
-  const queryText = `INSERT INTO "building" ("name", "zip_code", "state", "city", "apartment_image_url", "address", "website", )
+  const queryText = `INSERT INTO "building" ("name", "zip_code", "state", "city", "description", "apartment_image_url", "address", "website", )
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
-  pool.query(queryText, [newBuilding.name, newBuilding.zip_code, newBuilding.state, newBuilding.city, newBuilding.apartment_image_url, newBuilding.address, newBuilding.website]).then(response => {
+  pool.query(queryText, [newBuilding.name, newBuilding.zip_code, newBuilding.state, newBuilding.city, newBuilding.description, newBuilding.apartment_image_url, newBuilding.address, newBuilding.website]).then(response => {
     res.sendStatus(201);
   }).catch(error => {
     console.log(error);

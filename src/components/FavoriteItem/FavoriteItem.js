@@ -1,20 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
 
 function FavoriteItem() {
-    const dispatch = useDispatch(); // move
-    const [privateNote, setPrivateNote] = useState(''); // move
-    const [publicNote, setPublicNote] = useState(''); // move
+    const dispatch = useDispatch(); 
+    const [privateNote, setPrivateNote] = useState(''); 
+    const [publicNote, setPublicNote] = useState(''); 
     
 
     console.log(`what is insie the favorite store:`, favorites);
-    function handleDelete(id) { // move
+    function handleDelete(id) { 
         dispatch({
             type: 'DELETE_FAVORITE',
-            payload: id
+            payload: {id:id}
         })
     }
 
-    function handlePrivateNote(id) { // move
+    function handlePrivateNote(id) { 
         dispatch({
             type: 'UPDATE_PRIVATE_NOTE',
             payload: { id: id, private_note: privateNote }
@@ -23,7 +23,7 @@ function FavoriteItem() {
     }
 
 
-    function handlePublicNote(id) { // move
+    function handlePublicNote(id) { 
         dispatch({
             type: 'UPDATE_PUBLIC_NOTE',
             payload: { id: id, public_note: publicNote }

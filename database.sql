@@ -55,7 +55,21 @@ CREATE TABLE "building" (
 	"manslaughter" BOOLEAN NOT NULL DEFAULT false
 );
 
-select * from "building";
+select
+ "id",
+ "name",
+"zip_code", 
+"state",
+"city",
+"description",
+"apartment_image_url",
+"address",
+"website",
+"property_management_id",
+(SELECT COUNT(*) FROM "favorites" WHERE "favorites"."building_id"="building"."id" AND "favorites"."recommend"='true') AS recommend_count
+from "building";
+
+
 
  
 
@@ -80,15 +94,15 @@ CREATE TABLE "favorites" (
 
 );
 
-select * FROM "favorites";
+select * from "favorites";
 INSERT INTO "favorites" ("user_id", "building_id", "private_note", "public_note", "recommend")
 VALUES ('1', '1', 'Waiting on a response from the apartment managee overall the process is much smoother than the rest', 'The management was really nice and understanding, i have been upfront from the beginning about my situation and so far they they have been cool', 'f'),
 ('2', '2', 'I got the apartment', 'The management was really nice and understanding, i have been upfront from the beginning about my situation and so far they they have been cool', 't');
 
 
-select * from "favorites"
-join "building" on "building"."id" = "favorites"."building_id"
-join "user" on "user"."id" = "favorites"."user_id";
+SELECT "favorites"."id", to_json("building") as "building", "private_note", "public_note", "recommend" from "favorites" 
+join "building" on "building"."id" = "favorites"."building_id";
+
 
 DROP TABLE "favorites";
 

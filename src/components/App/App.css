@@ -1,3 +1,5 @@
+
+
 html,
 body,
 #react-root {
@@ -5,7 +7,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto Condesed', sans-serif, Tahoma, Geneva, Verdana; 
   margin: 0px;
 }
 
@@ -110,3 +112,20 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* --------------------------------------------------------------------------------
+Navigation 
+-------------------------------------------------------------------------------- */
+
+/* .mr-auto{
+  font-weight: 400px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  margin-left: 890px;
+
+} */
+
+.bootstrapBtn {
+  margin-right: 500px;
+}
+

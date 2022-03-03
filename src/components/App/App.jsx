@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
+import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -21,7 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import FavoritePage from '../FavoritePage/FavoritePage';
 import ContactPage from '../ContactPage/ContanctPage';
-import BuildingDetailPage from '../buildingDetailPage/BuildingDetailPage';
+import BuildingDetailPage from '../BuildingDetailPage/BuildingDetailPage'
 
 import './App.css';
 
@@ -42,7 +42,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Navigation />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/user" />
