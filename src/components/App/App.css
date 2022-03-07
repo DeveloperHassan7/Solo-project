@@ -31,10 +31,9 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #f1f8f8;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -57,7 +56,6 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
   text-decoration: none;
 }
 
@@ -117,15 +115,90 @@ input {
 Navigation 
 -------------------------------------------------------------------------------- */
 
-/* .mr-auto{
+.mr-auto {
   font-weight: 400px;
-  letter-spacing: 0.2px;
+  /* letter-spacing: 0.1px; */
   cursor: pointer;
-  margin-left: 890px;
-
-} */
+  margin-left: 680px;
+ 
+}
 
 .bootstrapBtn {
   margin-right: 500px;
 }
 
+
+/* --------------------------------------------------------------------------------
+Home 
+-------------------------------------------------------------------------------- */
+/* .header-wrapper{
+  position: relative;
+  background: url(world.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+} */
+
+
+/* --------------------------------------------------------------------------------
+Particles
+-------------------------------------------------------------------------------- */
+
+#tsparticles{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 8
+
+}
+
+.favoriteBtn {
+  background-color: white;
+  color: red;
+}
+
+.favoriteSpanBtn :hover {
+  background-color: white;
+  color: red;
+}
+
+.favoriteSpanBtn {
+  color: white;
+  background-color: rgb(214, 211, 211);
+}
+
+
+.search-container{
+  margin-top: 45px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.center-container{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.bootstrapBtn {
+  margin-left: 600px;
+  margin-top: 100px;
+}
+
+ul{
+  font-style: none;
+}
+
+form.formPanel{
+  margin-top: 80px;
+}
+
+input.btn{
+  margin-left: 140px;
+  margin-top: 30px;
+}
+
+button.btn btn-dark{
+    margin-top: 500px;
+}

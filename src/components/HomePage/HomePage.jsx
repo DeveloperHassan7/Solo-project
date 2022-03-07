@@ -1,33 +1,39 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './HomePage.css';
+import {Button} from "react-bootstrap"
 
 
- 
+
 
 function HomePage() {
-  const user = useSelector(store => store.user);
-  const dispatch = useDispatch();
-  const history = useHistory();
-  
-  console.log('The users are', user);
+    const user = useSelector(store => store.user);
+    const dispatch = useDispatch(); const history = useHistory();
+    const building = useSelector(store => store.buildingReducer)
 
-function handleSubmit() {
-  history.push('/search')
-}
+    console.log('The users are', user);
 
-  return (
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <h3>Your dream apartment awaits you</h3> 
-      <button onClick={handleSubmit} >Begin your journey</button>
-      
-    </div>
+    function handleSubmit() {
+      history.push('/search')
+    }
+
     
-  );
-}
 
-// this allows us to use <App /> in index.js
+    return (
+      <div className='homePageBackground'>
+        <div className="container">
+          <h1>Welcome, {user.username}!</h1>
+          <h3>Find your dream apartment</h3>
+          
+            <Button className="homeBtn" onClick={() => history.push('/search')}variant="dark">Begin your Journey</Button>
+        </div>
+    
+      </div>
+
+
+
+    );
+  }
 export default HomePage;
 

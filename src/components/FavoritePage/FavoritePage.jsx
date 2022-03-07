@@ -3,27 +3,23 @@ import FavoriteItem from "./FavoriteItem";
 
 function FavoritePage() {
     const favorites = useSelector(store => store.favoriteReducer)
-    
+
 
     return (
-        <div className="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Private Note</th>
-                        <th>Public Note</th>
-                        <th>Recommend</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {favorites.map(favorite => {
-                        return <FavoriteItem favorite={favorite} /> 
-                    })}
-                </tbody>
-            </table>
+        <div>
+            <h3 className="list">A list of your favorite apartments</h3>
+            <div className="container">
+                <table>
+                    <thead>
+
+                    </thead>
+                    <tbody>
+                        {favorites.map(favorite => {
+                            return <FavoriteItem favorite={favorite} />
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

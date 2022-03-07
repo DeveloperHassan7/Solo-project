@@ -1,11 +1,71 @@
-li{
+li {
     font-style: none;
 }
 
-img{
+img {
     width: 300px;
 }
 
-h1{
+h1, h3 {
     text-align: center;
+}
+
+h3{
+    color: black;
+}
+
+
+.card-img-top {
+    height: 15vh;
+}
+
+.bed {
+    margin-left: 6px;
+    margin-right: px;
+    border-radius: 8px;
+}
+
+
+
+.city-state {
+    margin-left: 6px;
+    border-radius: 8px;
+}
+
+.bath {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 8px;
+}
+
+.offense {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 8px;
+}
+
+.price {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 8px;
+}
+
+.search {
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 8px;
+}
+
+
+.inputBox {
+    margin-left: 35px;
+}
+
+.descr, p{
+    color: black;
+}
+
+.container{
+    text-align: center;
+    margin-top: 20px;
 }

@@ -3,34 +3,54 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Navigation.css';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, Container } from "react-bootstrap"
-import logo from '../second.png'
-//REACT FONTAWESOME IMPORTS
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
+// import logo from '../second.png'
 
 function Navigation() {
   const user = useSelector((store) => store.user);
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home"> <img src={logo} width="90px" height="40px" /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav"  /> <FontAwesomeIcon icon={faBars} />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link className="nav-link" href="#home">Home</Nav.Link>
-              <Nav.Link className="nav-link" href="#favorite">Favorites</Nav.Link>
-              <Nav.Link className="nav-link" href="#search">Apartment</Nav.Link>
-              <Nav.Link className="nav-link" href="#about">About</Nav.Link>
-              <Nav.Link className="nav-link" href="#contact">Contact</Nav.Link>
-              <Nav.Link className="nav-link" href="#logout">Log Out</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <div>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand > SecondConnect</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="mr-auto">
+                <NavLink className="nav-link" to="/user"></NavLink>
+
+                {/* If no user is logged in, show these links */}
+                {!user.id === null &&
+                  // If there's no user, show login/registration links
+                  <NavLink className="navLink" to="/login">
+                    Login / Register
+                  </NavLink> 
+                }
+
+                {/* If a user is logged in, show these links */}
+                {user.id && (
+                  <>
+                    <NavLink className="nav-link" to="/home">Home</NavLink>
+                    <NavLink className="nav-link" to="/search">Apartment</NavLink>
+                    <NavLink className="nav-link" to="/favorite">Favorites</NavLink>
+
+                  </>
+                )}
+                <NavLink className="nav-link" to="/about">About</NavLink>
+                <NavLink className="nav-link" to="/contact">Contact</NavLink>
+
+                {user.id && (
+                  < LogOutButton className="navLink" />
+                )}
+
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
+
 
     </>
   )

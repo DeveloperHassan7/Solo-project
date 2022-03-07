@@ -8,6 +8,8 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import Particles from "react-tsparticles";
+
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 
@@ -22,6 +24,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import FavoritePage from '../FavoritePage/FavoritePage';
 import ContactPage from '../ContactPage/ContanctPage';
 import BuildingDetailPage from '../BuildingDetailPage/BuildingDetailPage'
+
 
 import './App.css';
 
@@ -43,9 +46,26 @@ function App() {
     <Router>
       <div>
         <Navigation />
+      
+        {/* <Particles 
+          params={{
+            particles: {
+              number: {
+                value: 30,
+                density: {
+                  enable: true,
+                  value_area: 900
+                }
+              },
+              shape: {
+                type: 'star'
+              }
+            }
+          }} */}
+
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/user" />
+          <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -57,7 +77,7 @@ function App() {
           </Route>
 
           <Route
-            // shows AboutPage at all times (logged in or not)
+            // shows ContactPage at all times (logged in or not)
             exact
             path="/contact"
           >
@@ -69,7 +89,7 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows HomePage else shows LoginPage
             exact
             path="/user"
           >
@@ -92,6 +112,10 @@ function App() {
             <FavoritePage />
           </ProtectedRoute>
 
+          <Route path="/details/:id">
+            <BuildingDetailPage />
+          </Route>
+
           <Route
             exact
             path="/login"
@@ -99,7 +123,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -113,15 +137,11 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route>
-
-          <Route path="/details/:id">
-            <BuildingDetailPage />
           </Route>
 
           <Route

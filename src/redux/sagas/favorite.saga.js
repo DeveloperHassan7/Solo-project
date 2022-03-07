@@ -65,16 +65,14 @@ function* updateRecommend (action) {
 }
 
 
-
 function* favoriteSaga() {
     yield takeLatest('FETCH_FAVORITES', fetchFavorite);
     yield takeLatest('ADD_FAVORITE', addFavorite);
     yield takeLatest('DELETE_FAVORITE', deleteFavorite);
     yield takeLatest('UPDATE_PRIVATE_NOTE', updatePrivateNote);
     yield takeLatest('UPDATE_PUBLIC_NOTE', updatePublicNote);
-    yield takeLatest('UPDATE_RECOMMEND', updateRecommend);
-    
+    yield takeLatest('UPDATE_RECOMMEND', updateRecommend)  
 
 }
 
-export default favoriteSaga;
+export default favoriteSaga

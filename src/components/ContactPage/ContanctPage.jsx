@@ -7,10 +7,10 @@ function ContactPage() {
     return (
         <>
             <div className="container">
-                <h2>Work with SecondConnect</h2>
-                <h4>Ready to contribute or just have questions? Simply fill out the form:</h4>
+                <h2>Get In Touch</h2>
+                <h6>Ready to contribute or just have questions? Simply fill out the form!</h6>
             </div>
-            <Container fluid>
+            <Container className="contact-container" fluid>
                 <Form>
                     <Row>
                         <Form.Group as={Col}>
@@ -59,16 +59,9 @@ function ContactPage() {
                             <Form.Check name="list" label="List Apartment" inline />
                             <Form.Check name="list" label="List Job" inline />
                             <Form.Check name="list" label="Mentor" inline />
-                        </Form.Group>
-                    </Row>
-
-                    <Row >
-                        <Col>
-                            <Button onClick={() => history.push('/home')} className="bootstrapBtn" variant="primary" size="lg">Submit</Button>
-                        </Col>
-                    </Row>
-
-
+                        </Form.Group> 
+                    </Row> <br />
+                    <Button onClick={() => history.push('/home')} className="bootstrapBtn" variant="secondary" size="lg">Submit</Button>
                 </Form>
             </Container>
 

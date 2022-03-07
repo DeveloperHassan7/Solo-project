@@ -9,7 +9,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     let userId = req.user.id
     let queryText = `SELECT "favorites"."id", to_json("building") as "building", "private_note", "public_note", "recommend" from "favorites" 
     join "building" on "building"."id" = "favorites"."building_id"
-    where "favorites"."user_id" = $1
+    where "favorites"."user_id" = $1 ORDER BY "favorites"."id"
     `;
     pool.query(queryText, [userId]).then((result) => {
         res.send(result.rows)
@@ -94,6 +94,23 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
       });
   });
+
+// This grabs all of the public note and building id from the favorites table
+  router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log(req.user);
+    let queryText = `select "building_id", "public_note", "recommend" from "favorites"
+    where "building_id"= 3
+    ;
+    
+    ;`;
+    pool.query(queryText, [req.params.id]).then((result) => {
+        res.send(result.rows)
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+
+});
 
 
 module.exports = router;

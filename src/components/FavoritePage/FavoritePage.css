@@ -1,3 +1,17 @@
-img{
-    width: 300px
+.card-img-top{
+    height: 20vh;
 }
+
+.card-img, .card-img-top{
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-img, .card-img-bottom, .card-img, .card-img-top {
+    width: 200px;
+}
+
+h3 .h3 {
+    text-align: center;
+}
+

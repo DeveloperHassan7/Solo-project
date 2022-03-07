@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Form, Container, Button, Row, Col } from "react-bootstrap"
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -21,41 +22,44 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
+    <Container className="contact-container" fluid>
+      <Form className="formPanel" onSubmit={registerUser} >
+        <h2>Register User</h2>
+        {errors.registrationMessage && (
+          <h3 className="alert" role="alert">
+            {errors.registrationMessage}
+          </h3>
+        )}
+        <Form.Group >
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="text"
             value={username}
             required
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
+        </Form.Group>
+
+        <Form.Group>
+          <>
+            <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+            <Form.Control
+              type="password"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <Form.Text id="passwordHelpBlock" muted>
+              Your password must be 8-20 characters long
+            </Form.Text>
+          </>
+        </Form.Group>
+
         <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
-    </form>
+
+      </Form>
+    </Container>
   );
 }
 

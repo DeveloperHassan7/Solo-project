@@ -1,7 +1,12 @@
-h2, h4{
+h2, h6{
     text-align: center;
+    
 }
 
-.bootstrapBtn {
-    margin-right: 500px;
+div.contact-container{
+    width: 600px;
+}
+
+button.bootstrapBtn{
+   margin-left: 245px;
 }

@@ -78,3 +78,15 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+
+
+/* .homePageBackground {
+  background-image: url(sky.jpeg);
+  background-size: cover;
+  min-height: 90vh;
+ } */
+ 
+ body {
+   background-color:black
+ }

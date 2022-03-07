@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
@@ -13,7 +14,13 @@ function LogOutButton(props) {
     >
       Log Out
     </button>
+    // <NavLink onClick={() => dispatch({ type: 'LOGOUT' })} className="nav-link" to="/favorite">Log Out</NavLink>
+
   );
 }
 
 export default LogOutButton;
+
+
+
+

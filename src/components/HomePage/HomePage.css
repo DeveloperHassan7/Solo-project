@@ -1,8 +1,25 @@
-h2, h3{
-    text-align: left
+h3{
+    text-align: left;
+    padding-top: 20px;
+}
+.beginJourney{
+   margin-right: 100px;
 }
 
-button{
-    text-align: center;
+
+h3{
+    color: white;
 }
 
+ .homePageBackground {
+  background-image: url(summer.jpeg);
+  background-size: cover;
+  min-height: 100vh;
+ } 
+
+
+button.homeBtn{
+    margin-top: 400px;
+    background-color: rgb(71, 76, 88);
+    color: white
+}
