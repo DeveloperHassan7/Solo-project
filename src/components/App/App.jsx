@@ -46,23 +46,6 @@ function App() {
     <Router>
       <div>
         <Navigation />
-      
-        {/* <Particles 
-          params={{
-            particles: {
-              number: {
-                value: 30,
-                density: {
-                  enable: true,
-                  value_area: 900
-                }
-              },
-              shape: {
-                type: 'star'
-              }
-            }
-          }} */}
-
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />

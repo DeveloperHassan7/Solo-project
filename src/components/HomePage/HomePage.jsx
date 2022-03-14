@@ -5,21 +5,9 @@ import './HomePage.css';
 import {Button} from "react-bootstrap"
 
 
-
-
 function HomePage() {
     const user = useSelector(store => store.user);
-    const dispatch = useDispatch(); const history = useHistory();
-    const building = useSelector(store => store.buildingReducer)
-
-    console.log('The users are', user);
-
-    function handleSubmit() {
-      history.push('/search')
-    }
-
     
-
     return (
       <div className='homePageBackground'>
         <div className="container">
@@ -27,13 +15,8 @@ function HomePage() {
           <h3>Find your dream apartment</h3>
           
             <Button className="homeBtn" onClick={() => history.push('/search')}variant="dark">Begin your Journey</Button>
-        </div>
-    
+        </div> 
       </div>
-
-
-
     );
   }
 export default HomePage;
-

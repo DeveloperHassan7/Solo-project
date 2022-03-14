@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Navigation.css';
 import { useSelector } from 'react-redux';
@@ -42,7 +41,7 @@ function Navigation() {
                 <NavLink className="nav-link" to="/contact">Contact</NavLink>
 
                 {user.id && (
-                  < LogOutButton className="navLink" />
+                  < LogOutButton className="logOutBtn" />
                 )}
 
               </Nav>

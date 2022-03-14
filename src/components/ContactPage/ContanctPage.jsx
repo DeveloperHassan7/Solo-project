@@ -64,9 +64,6 @@ function ContactPage() {
                     <Button onClick={() => history.push('/home')} className="bootstrapBtn" variant="secondary" size="lg">Submit</Button>
                 </Form>
             </Container>
-
-
-
         </>
     )
 }

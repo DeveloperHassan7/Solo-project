@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import './SearchPage.css';
-import { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

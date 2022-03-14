@@ -24,8 +24,6 @@ function BuildingDetailPage() {
         <Container>
             <div>
                 <h1>Apartment Detail Below</h1>
-
-
              <ListGroup > 
                     <ListGroup.Item>{building.name}</ListGroup.Item>
                     <ListGroup.Item>{building.description}</ListGroup.Item>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Container, Button, Row, Col } from "react-bootstrap"
+import { Form, Container} from "react-bootstrap"
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
